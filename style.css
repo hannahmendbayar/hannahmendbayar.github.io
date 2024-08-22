@@ -407,35 +407,155 @@ span{
     box-shadow: 0 0 25px var(--main-color);
     background-color: var(--main-color);
 }
+
+/* Projects Section */
 .projects {
-    background: var(--bg-color);
-    color: white;
-    padding: 10rem 9%;
-    text-align: center;
-}
-.projects-content h2 {
-    font-size: 8rem;
-    margin-bottom: 2rem;
-}
-.coming-soon {
-    font-size: 4rem;
-    color: var(--main-color);
+    background: var(--bg-color) center no-repeat;
+    background-size: cover;
+    padding: 5rem 1rem;
     position: relative;
-    display: inline-block;
+    overflow: hidden;
 }
-.coming-soon::before {
-    content: '';
-    position: absolute;
-    bottom: 0;
-    left: 0%;
-    width: 0;
-    height: 3px;
-    background-color: var(--main-color);
-    transition: width 0.5s ease-in-out;
+
+.carousel {
+    display: flex;
+    align-items: center;
+    position: relative;
 }
-.coming-soon:hover::before {
+
+.carousel-inner {
+    display: flex;
+    transition: transform 0.5s ease-in-out;
     width: 100%;
+    will-change: transform;
 }
+
+.project-card {
+    min-width: 30%; /* Adjust this width to show 3 cards at a time */
+    max-width: 30%; /* Adjust this width to show 3 cards at a time */
+    margin: 0 1.5%;
+    background: linear-gradient(145deg, rgba(255, 255, 255, 0.1), rgba(255, 255, 255, 0.05));
+    backdrop-filter: blur(20px);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    border-radius: 2rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+    text-align: center;
+    padding: 2rem;
+    overflow: hidden;
+    cursor: pointer;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
+    transition: transform 0.3s ease, box-shadow 0.3s ease, background-color 0.3s ease;
+}
+
+.project-card:hover {
+    background-color: rgba(255, 255, 255, 0.1);
+    box-shadow: 0 16px 40px rgba(0, 0, 0, 0.4);
+    transform: scale(1.08) rotate(-2deg);
+}
+
+.project-card img {
+    width: 100%;
+    height: 300px;
+    border-radius: 1rem;
+    object-fit: cover;
+    transition: transform 0.5s ease;
+}
+
+.project-card:hover img{
+    transform: scale(1.1);
+}
+
+.project-card h3 {
+    font-size: 2.2rem;
+    margin: 1rem 0 0.5rem;
+    color: var(--main-color);
+    transition: color 0.3s ease;
+    text-transform: uppercase;
+    letter-spacing: 0.1rem;
+}
+
+.project-card p {
+    font-size: 1.4rem;
+    color: rgba(255, 255, 255, 0.8);
+    line-height: 1.6;
+    transition: color 0.3s ease;
+}
+
+.project-card:hover p {
+    color: var(--secondary-color);
+}
+
+.btn {
+    margin-top: 1.5rem;
+    padding: 0.75rem 2rem;
+    background-color: var(--main-color);
+    color: white;
+    border-radius: 1.5rem;
+    font-size: 1.6rem;
+    transition: background-color 0.3s ease, transform 0.3s ease;
+}
+
+.btn:hover {
+    background-color: var(--secondary-color);
+    transform: scale(1.1);
+}
+
+.carousel-control {
+    background: none;
+    border: none;
+    color: rgba(255, 255, 255, 0.8);
+    font-size: 3rem;
+    cursor: pointer;
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    z-index: 100;
+    transition: color 0.3s ease;
+}
+
+.carousel-control:hover {
+    color: var(--secondary-color);
+}
+
+.carousel-control.prev {
+    left: 10px;
+}
+
+.carousel-control.next {
+    right: 10px;
+}
+
+.carousel-dots {
+    position: absolute;
+    bottom: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    gap: 0.5rem;
+}
+
+.carousel-dots button {
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+    border: none;
+    background-color: rgba(255, 255, 255, 0.5);
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.carousel-dots button.active {
+    background-color: var(--main-color);
+}
+
+.carousel-dots button:hover {
+    background-color: var(--secondary-color);
+}
+
+/*Contact Section */
 .contact{
     background-color: var(--second-bg-color);
 }
@@ -524,6 +644,104 @@ span{
     text-align: center;
     font-size: 16px;
     color: white;
+}
+@media(max-width:1200px){
+    html{
+        font-size: 55%;
+    }
+    .skills-container{
+        padding-bottom: 7rem;
+        grid-template-columns: repeat(1,1fr);
+        margin: 0 5rem;
+    }
+}
+@media(max-width:991px){
+    header{
+        padding: 2rem 3%;
+    }
+    section{
+        padding: 10rem 3% 2rem;
+    }
+    .skills{
+        padding-bottom: 7rem;
+    }
+    .footer{
+        padding: 2rem 3%;
+    }
+}
+@media(max-width:895px) {
+    #menu-icon{
+        display: block;
+    }
+    .navbar{
+        position: absolute;
+        top: 100%;
+        right: 0;
+        width: 50%;
+        padding: 1rem 3%;
+        background: rgba(0, 0, 0, 0.2);
+        border-bottom-left-radius: 2rem;
+        border-left: 2px solid var(--main-color);
+        border-bottom: 2px solid var(--main-color);
+        border-top: 0.1rem solid rgba(0, 0, 0, 0.2);
+        display: none;
+    }
+    .navbar .active{
+        display: block;
+    }
+    .navbar a{
+        display: block;
+        font-size: 2rem;
+        margin: 3rem 0;
+        color: white;
+    }
+    .home{
+        flex-direction: column;
+        margin: 5rem 4rem;
+    }
+    .home-content h3{
+        font-size: 2.6rem;
+    }
+    .home-content h1{
+        font-size: 8rem;
+        margin-top: 3rem;
+    }
+    .home-content p{
+        max-width: 600px;
+        margin: 0 auto;
+    }
+    .home-img img{
+        width: 56vw;
+        margin-top: -2rem;
+    }
+    .about{
+        flex-direction: column-reverse;
+    }
+    .about-content{
+        margin: 0 2rem 4rem;
+    }
+    .about img{
+        width: 52vw;
+        margin-top: 1rem;
+        margin-bottom: 3rem;
+    }
+    .projects h2{
+        margin-bottom: 3rem;
+    }
+    .timeline-items::before{
+        left: 7px;
+    }
+    .timeline-item:nth-child(odd){
+        padding: 0;
+        text-align: left;
+    }
+    .timeline-item:nth-child(odd),
+    .timeline-item:nth-child(even){
+        padding-left: 37px;
+    }
+    .timeline-dot{
+        left: 0;
+    }
 }
 @media(max-width:1200px){
     html{
